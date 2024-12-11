@@ -19,7 +19,7 @@ const AllUser = () => {
         setIsLoading(true);
         setError(null);
         try {
-            const response = await axios.get("https://rabc-backend.onrender.com/api/users/");
+            const response = await axios.get("http://localhost:3000/api/users/");
             setApidata(response.data.data);
         } catch (err) {
             console.error("Error fetching data", err.message);
@@ -55,7 +55,7 @@ const AllUser = () => {
     const handleDeleteUser = async (userId) => {
         if (window.confirm("Are you sure you want to delete this user?")) {
             try {
-                await axios.delete(`https://rabc-backend.onrender.com/api/users/${userId}`);
+                await axios.delete(`http://localhost:3000/api/users/${userId}`);
                 alert("User deleted successfully!");
                 apiFetch(); // Refresh the user list after deletion
             } catch (err) {
@@ -189,7 +189,7 @@ const EditUserPopup = ({ user, onClose, onUserUpdated }) => {
         }
 
         try {
-            const response = await axios.put(`https://rabc-backend.onrender.com/api/users/${user._id}`, formData);
+            const response = await axios.put(`http://localhost:3000/api/users/${user._id}`, formData);
 
             if (response.status === 200) {
                 alert("User updated successfully!");
