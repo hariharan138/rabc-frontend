@@ -23,7 +23,7 @@ const LoginForm = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:3000/api/users/login', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/users/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

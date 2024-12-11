@@ -25,7 +25,7 @@ const Dashboard = () => {
  const apiFetch = async () => {
   
   try {
-      const response = await axios.get("http://localhost:3000/api/users/");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/`);
       console.log(response.data.data)
       let usercount = response.data.data.length
       setcount(usercount)

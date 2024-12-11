@@ -33,7 +33,7 @@ const AddUserPopup = ({ onClose, onUserAdded }) => {
         }
 
         try {
-            const response = await axios.post("http://localhost:3000/api/users/register", formData);
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/users/register`, formData);
 
             if (response.status === 201) {
                 alert("User added successfully!");
